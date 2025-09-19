@@ -5,21 +5,21 @@ totalPaid = 0
 
 
 
-currentMonthlyMortgage = 4600
-refinanceCost = 10000 + 1600
+currentMonthlyMortgage = 3500
+refinanceCost = 0
 monthlySaving = 0
 coverUpMonths = 0
 
-interestRateAPR = 0.0375
-lumpSumPayOff = 30000  # One time payment made to reduce only principal
-principalAmount = 605000 + refinanceCost - lumpSumPayOff
+interestRateAPR = 0.225
+lumpSumPayOff = 0  # One time payment made to reduce only principal
+principalAmount = 480000 + refinanceCost - lumpSumPayOff
 payOffYear = 30
-currentProperty_Value = 620000
+currentProperty_Value = 720000
 
 propertyAnnualGrowthRate = 0.0103  # Annual property value growth rate
 monthlyInterestRate = interestRateAPR / 12
 payments = payOffYear * 12
-additionalMonthlyPayment = 0  # Extra payment made to principle every month
+additionalMonthlyPayment = 2000  # Extra payment made to principle every month
 monthlyVariable = interestRateAPR / payments  # APR interest rate / 360
 
 
