@@ -1,0 +1,18 @@
+[client]
+showErrorDetails = "none"
+
+[theme]
+primaryColor = "#F63366"
+backgroundColor = "black"
+
+[logger]
+
+# Level of logging for Streamlit's internal logger: "error", "warning",
+# "info", or "debug".
+#
+# Default: "info"
+level = "info"
+messageFormat = "%(asctime)s %(message)s"
+
+[server]
+runOnSave = true

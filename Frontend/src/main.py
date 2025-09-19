@@ -2,6 +2,6 @@
 import streamlit as st
 
 
-st.title("HEY")
+st.title("Main Title")
 
 
