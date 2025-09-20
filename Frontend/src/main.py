@@ -33,5 +33,49 @@ def sendInput(loanPrincipal, annualRate, totalNumberOfPayments):
 def sendInputOldCalculate(loanPrincipal, annualRate, totalNumberOfPayments):
     payload = {"loanPrincipal": loanPrincipal, "annualRate": annualRate, "totalNumberOfPayments": totalNumberOfPayments}
     response = requests.post("http://127.0.0.1:8000/oldCalculator", json = payload)
-    st.dataframe(pd.read_json(response.json()))
+    column_config = {
+        "Year": st.column_config.NumberColumn(
+            "Year",  # Optional: Customize the label
+            format="%d",
+        ),
+        "Month": st.column_config.NumberColumn(
+            "Month",
+            format="%d",
+        ),
+        "Total Month Pay": st.column_config.NumberColumn(
+            "Total Monthly Payment",
+            format="dollar"  # Format as currency with 2 decimal places
+        ),
+        "monthlyPrinciplePay": st.column_config.NumberColumn(
+            "Monthly Principal Payment",
+            format="dollar",
+        ),
+        "monthlyInterestAccrued": st.column_config.NumberColumn(
+            "Monthly Interest",
+            format="dollar",
+        ),
+        "escrowMonthly": st.column_config.NumberColumn(
+            "Escrow Monthly",
+            format="dollar",
+        ),
+        "totalPrincipalAmount": st.column_config.NumberColumn(
+            "Remaining Principal",
+            format="dollar",
+        ),
+        "paidBalance": st.column_config.NumberColumn(
+            "Principal Paid to Date",
+            format="dollar",
+        ),
+        "totalPaid": st.column_config.NumberColumn(
+            "Total Paid to Date",
+            format="dollar",
+        ),
+        "interestPaid": st.column_config.NumberColumn(
+            "Interest Paid to Date",
+            format="dollar",
+        ),
+    }
+
+
+    st.dataframe(pd.read_json(response.json()), column_config=column_config)
 main()
